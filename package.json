@@ -1,0 +1,94 @@
+{
+	"name": "helloworld",
+	"displayName": "helloWorld",
+	"description": "",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "helloworld.myCustomCommand",
+				"title": "My Custom Command"
+			},
+			{
+				"command": "helloworld.selectText",
+				"title": "Format Text In Json File"
+			},
+			{
+				"command": "helloworld.formatJson",
+				"title": "Format File Json"
+			},
+			{
+				"command": "helloworld.myChild1",
+				"title": "My Child1"
+			},
+			{
+				"command": "helloworld.myChild2",
+				"title": "My Child2"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"_comment": "to add extension into the context menu definition when using right-click",
+					"command": "helloworld.myCustomCommand",
+					"when": "editorLangId == 'javascript' || editorLangId == 'json'"
+				},
+				{
+					"_comment": "to add extension into the context menu definition when using right-click",
+					"command": "helloworld.selectText",
+					"when": "editorLangId == 'json'"
+				},
+				{
+					"_comment": "to add extension into the context menu definition when using right-click",
+					"command": "helloworld.formatJson",
+					"when": "editorLangId == 'json'"
+				},
+				{
+					"submenu": "parent1",
+					"group": "navigation"
+				}
+			],
+			"parent1": [
+				{
+					"command": "helloworld.myChild1"
+				},
+				{
+					"command": "helloworld.myChild2"
+				}
+			]
+		},
+		"submenus": [
+			{
+				"id": "parent1",
+				"label": "Parent"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "vscode-test"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.85.0",
+		"@types/mocha": "^10.0.6",
+		"@types/node": "18.x",
+		"@typescript-eslint/eslint-plugin": "^6.15.0",
+		"@typescript-eslint/parser": "^6.15.0",
+		"eslint": "^8.56.0",
+		"typescript": "^5.3.3",
+		"@vscode/test-cli": "^0.0.4",
+		"@vscode/test-electron": "^2.3.8"
+	}
+}
