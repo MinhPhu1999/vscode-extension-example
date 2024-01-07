@@ -1,14 +1,22 @@
 {
 	"name": "helloworld",
 	"displayName": "helloWorld",
-	"description": "",
+	"description": "Example to build extension using typescript and vs code api",
 	"version": "0.0.1",
+	"id": "example-extension",
+	"publisher": "phusm",
+	"icon": "images/logo.jpg",
 	"engines": {
 		"vscode": "^1.85.0"
 	},
 	"categories": [
 		"Other"
 	],
+	"homepage": "https://github.com/MinhPhu1999/vscode-extension-example/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MinhPhu1999/vscode-extension-example"
+	},
 	"activationEvents": [],
 	"main": "./out/extension.js",
 	"contributes": {
