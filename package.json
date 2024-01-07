@@ -4,13 +4,13 @@
 	"description": "Example to build extension using typescript and vs code api",
 	"version": "0.0.1",
 	"id": "example-extension",
-	"publisher": "phusm",
+	"publisher": "example-extension",
 	"icon": "images/logo.jpg",
 	"engines": {
 		"vscode": "^1.85.0"
 	},
 	"categories": [
-		"Other"
+		"Azure Boards"
 	],
 	"homepage": "https://github.com/MinhPhu1999/vscode-extension-example/blob/master/README.md",
 	"repository": {
@@ -80,6 +80,26 @@
 			}
 		]
 	},
+	"contributions": [
+		{
+			"_comment": "test contributors",
+			"id": "example-extension",
+			"type": "ms.vss-web.action",
+			"description": "Adds a menu action from builds grid to show associated items.",
+			"targets": [
+				"ms.vss-build-web.completed-build-menu"
+			],
+			"properties": {
+				"title": "View associated items",
+				"uri": "launch.html"
+			}
+		}
+	],
+	"targets": [
+		{
+			"id": "Microsoft.VisualStudio.Services"
+		}
+	],
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
